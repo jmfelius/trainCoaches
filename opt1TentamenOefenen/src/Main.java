@@ -66,7 +66,7 @@ class Train {
     public void addCoach(Coach coach) {
 
         Integer x = this.totalWeight();
-        r 69 spatie return
+
 
         x += coach.getWeight();
         if (x <= isTowedBy.getPower()) {
