@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 class Main {
@@ -42,9 +41,9 @@ class Engine{
 }
 
 
-class Train{
+class Train {
     private Engine isTowedBy;
-    private ArrayList<Coach> consistsOf ;
+    private ArrayList<Coach> consistsOf;
 
     public Train(Engine engine) {
         this.isTowedBy = engine;
@@ -57,50 +56,52 @@ class Train{
 
         Integer totalWeight = 0;
 
-        for (int i=0; i < consistsOf.size(); i++) {
+        for (int i = 0; i < consistsOf.size(); i++) {
             totalWeight += consistsOf.get(i).getWeight();
         }
         totalWeight += this.isTowedBy.getWeight();
         return totalWeight;
     }
 
-    public void addCoach (Coach coach){
+    public void addCoach(Coach coach) {
 
         Integer x = this.totalWeight();
         x += coach.getWeight();
-        if ( x <= isTowedBy.getPower()) {
+        if (x <= isTowedBy.getPower()) {
             consistsOf.add(coach);
 
-    }
-
-    public Integer totalCapacity() {
-
-        Integer totalCapacity = 0;
-
-        for (int i=0; i < consistsOf.size(); i++) {
-            totalCapacity += consistsOf.get(i).getCapacity();
-
         }
-        return totalCapacity;
     }
+
+        public Integer totalCapacity() {
+
+            Integer totalCapacity = 0;
+
+            for (int i = 0; i < consistsOf.size(); i++) {
+                totalCapacity += consistsOf.get(i).getCapacity();
+
+            }
+            return totalCapacity;
+        }
+
 }
 
-class Coach{
 
-    private Integer weight;
-    private Integer capacity;
+    class Coach {
 
-    public Coach (Integer weight, Integer capacity){
-        this.weight = weight;
-        this.capacity = capacity;
+        private Integer weight;
+        private Integer capacity;
+
+        public Coach(Integer weight, Integer capacity) {
+            this.weight = weight;
+            this.capacity = capacity;
+        }
+
+        public Integer getWeight() {
+            return this.weight;
+        }
+
+        public Integer getCapacity() {
+            return this.capacity;
+        }
     }
-
-    public Integer getWeight() {
-        return this.weight;
-    }
-
-    public Integer getCapacity() {
-        return this.capacity;
-    }
-}
-
