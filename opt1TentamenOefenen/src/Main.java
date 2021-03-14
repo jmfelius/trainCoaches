@@ -4,14 +4,15 @@ class Main {
 
 public static void main (String[] args){
 
-    Engine a1200 = new Engine (10, 80);
+    Engine a1200 = new Engine (10, 180);
 
     Train NS1 = new Train (a1200);
-
+    Coach coach2 = new Coach (39, 190);
     Coach coach3 = new Coach(40,250);
     Coach coach4 = new Coach(20,200);
     NS1.addCoach(coach3);
     NS1.addCoach(coach4);
+    NS1.addCoach(coach2);
 
 
     System.out.println(a1200.getWeight());
